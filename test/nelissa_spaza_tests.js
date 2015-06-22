@@ -1,18 +1,17 @@
 var assert = require("assert");
-
+var readFolder = require('../modules/productsSold');
 
     describe("Find lines in files", function(){
 
     it('should find the lines syncronously', function(){
-        var readFolder = require('../productsSold');
-        assert.equal(11, readFolder.linesInFiles('../files/NelisaSalesHistory.csv').length);
+       
+        assert.equal(449, readFolder.findLines('../files/NelisaSalesHistory.csv'));
     });
 
-    it('should find the lines asyncronously', function(done){
-        var readFolder = require('../productsSold');
-        readFolder.linesInFilesAsync('../files/NelisaSalesHistory.csv', function(err, entries){
-            assert.equal(11, entries.length);
-            done();
+    it('should find the lines asyncronously', function(){
+        readFolder.linesInFilesAsync('../files/NelisaSalesHistory.csv', function(err, results){
+            assert.equal(11, results);
+            
                   });
             });
         });
