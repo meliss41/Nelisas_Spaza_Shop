@@ -1,5 +1,5 @@
 var assert = require("assert");
-var productsSold = require('../modules/productsSold');
+var productsSold = require('../modules/Nelisa_Spaza_Sales');
 
 describe("Nelisa's spaza sales processing", function(){
 
