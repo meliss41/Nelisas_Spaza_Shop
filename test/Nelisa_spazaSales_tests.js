@@ -14,7 +14,7 @@ describe("Nelisa's spaza sales processing", function(){
         //you might need some other functions to help you...
 
         var mostPopularProduct = productsSold.findMostPopularProduct();
-        assert.equal(mostPopularProduct, "Prod2");
+        assert.equal(productsSold.findSalesRows('./files/NelisaSalesHistory.csv'));
 
     });
 
