@@ -18,6 +18,7 @@ describe("Nelisa's spaza sales processing", function(){
         //think how to find most popular product...
 
         //you might need some other functions to help you...
+<<<<<<< HEAD
         //var reader = new SalesFileReader('./files/NelisaSalesHistory.csv');
 
         // Mock object
@@ -36,6 +37,11 @@ describe("Nelisa's spaza sales processing", function(){
         //
         //assert.equal(mostPopularProduct, "Pears");
         assert.equal(mostPopularProduct, {name : "Pears", qty: 10});
+=======
+
+        var mostPopularProduct = productsSold.findMostPopularProduct();
+        assert.equal(productsSold.findSalesRows('./files/NelisaSalesHistory.csv'));
+>>>>>>> 8554fef174bd765a43fbbec781a768466dea8c4d
 
     });
 
