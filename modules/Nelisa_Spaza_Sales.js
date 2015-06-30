@@ -1,25 +1,17 @@
 var fs = require('fs');
- 
+var productsSold = [];     
 
-exports.findSalesRows = function(fileName){
-      
-    var fileContent = fs.readFileSync(fileName, "utf8");//read files in folder
+exports.findMostPopularProduct = function(salesFileReader){
+    var productNames =[];
+    var productMap = {};
+    var soldItemsMap = {};
+    var quantitySold = [];
+
+    var sales = salesFileReader.getSales();
     
-    //split the file into rows
-    var lines = fileContent.split('\r').splice(1); 
-    var productsSold = [];     
-    lines.forEach(function(line){
-        //split each line into fields
-        var fields = line.split(";");
-        productsSold.push(fields);
-    });
+    console.log('===========================================================')
+    console.log('===========================================================')
+    console.log('===========================================================')
+    console.log(sales)
 
-    //remove the column headings
-    console.log(productsSold);
-    return productsSold;
-
-};
-
-// exports.findMostPopularProduct = function(salesRows){
-//   return "Prod2";
-// }
+}
