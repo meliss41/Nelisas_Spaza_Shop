@@ -15,7 +15,7 @@ module.exports = function(fileName){
         });
 
         //remove the column headings
-        //console.log(productsSold);
+        console.log(productsSold);
         return productsSold;
             
     }
