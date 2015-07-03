@@ -8,7 +8,7 @@ describe("Nelisa's spaza sales processing", function(){
     it('should find all the sales rows in the file', function(){
 
     	var reader = new SalesFileReader('./files/NelisaSalesHistory.csv');
-    	assert.equal(448, reader.getSales().length);
+    	assert.equal(448, reader.getSales());
 
         //assert.equal(448, productsSold.findSalesRows('./files/NelisaSalesHistory.csv').length);
     });
