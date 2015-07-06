@@ -7,8 +7,8 @@ describe("Nelisa's spaza sales processing", function(){
 
     it('should find all the sales rows in the file', function(){
 
-    	var reader = new SalesFileReader('./files/NelisaSalesHistory.csv');
-    	assert.equal(448, reader.getSales());
+    	var reader = SalesFileReader.getSales('./files/NelisaSalesHistory.csv');
+    	assert.equal(448, reader.length);
 
         //assert.equal(448, productsSold.findSalesRows('./files/NelisaSalesHistory.csv').length);
     });
@@ -17,11 +17,11 @@ describe("Nelisa's spaza sales processing", function(){
 
         //think how to find most popular product...
 
-        //you might need some other functions to help you...        //var reader = new SalesFileReader('./files/NelisaSalesHistory.csv');
-
+        // you might need some other functions to help you...        
+       
         // Mock object
         var reader = {
-        	getSales : function(){
+        	findMostPopularProduct : function(){
         	return [  
         		[ 'Sunday', '1-Mar', 'Apples', '1', 'R2,00' ],
         		[ 'Sunday', '1-Mar', 'Pears', '5', 'R2,00' ],
@@ -29,15 +29,13 @@ describe("Nelisa's spaza sales processing", function(){
         		[ 'Sunday', '1-Mar', 'Pears', '5', 'R2,00' ]
         	]}
         };
-
-        var mostPopularProduct = productsSold.findMostPopularProduct(reader);
-        
-        //
-        //assert.equal(mostPopularProduct, "Pears");
-        assert.equal(mostPopularProduct, {itemName : "Pears", qty: 10});
-
-        var mostPopularProduct = productsSold.findMostPopularProduct();
-        assert.equal(productsSold.findSalesRows('./files/NelisaSalesHistory.csv'));
+        ;
+         var mostPopular = require('../modules/Nelisa_Spaza_Sales');
+         var reader = mostPopular.findMostPopularProduct('./files/NelisaSalesHistory.csv');
+        assert.equal({"productName":"Mixed Sweets 5s","qty":172},reader);
+        // assert.equal(reader,{productName : "Mixed Sweets 5s", qty : 172});
+        // var mostPopularProduct = productsSold.findMostPopularProduct();
+        // assert.equal(productsSold.findSalesRows('./files/NelisaSalesHistory.csv'));
     });
 
     
