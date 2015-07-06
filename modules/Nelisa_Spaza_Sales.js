@@ -3,21 +3,7 @@ var rs = require('./read_sales');
 exports.findMostPopularProduct = function(salesFileReader){
     
     var sales = rs.getSales("./files/NelisaSalesHistory.csv");
-
-    var productsSold = {};
-    sales.forEach(function(line){
-                //split each line into fields
-                var fields = line.split(";");
-                var productName = fields[2];
-                var qty = fields[3];
-        
-                if(productsSold[productName] === undefined){
-                    productsSold[productName] = 0;
-                };
-
-                productsSold[productName] = productsSold[productName] + Number(qty);
-                       
-            });
+    var productsSold = rs.getProducts(sales);
 
             var productName = "";
             var qty = 0;
@@ -29,7 +15,7 @@ exports.findMostPopularProduct = function(salesFileReader){
                     productName = key;
                 };
             }
-            
+
             console.log('===========================================================')
             console.log('===========================================================')
   

@@ -20,5 +20,12 @@ describe("Nelisa's spaza sales processing", function(){
          assert.deepEqual({"productName":"Mixed Sweets 5s","qty":172},reader);
     });
 
-    
+it('should find product names and push them into categories map', function(){
+
+       var products = SalesFileReader;
+       var reader = SalesFileReader.getProducts('./files/NelisaSalesHistory.csv');
+       assert.deepEqual(448,reader); 
+
+    });
+        
 });
