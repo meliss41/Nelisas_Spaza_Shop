@@ -29,7 +29,7 @@ exports.findMostPopularProduct = function(salesFileReader){
                     productName = key;
                 };
             }
-
+            
             console.log('===========================================================')
             console.log('===========================================================')
   
