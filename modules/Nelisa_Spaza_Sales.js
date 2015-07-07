@@ -16,112 +16,88 @@ exports.findMostPopularProduct = function(salesFileReader){
             productName = key;
         };
     }
-
-    console.log('===========================================================')
-    console.log('===========================================================')
-
     console.log(productName +','+ qty);
     return {
         productName:productName,
         qty:qty
     };
-
-
+        console.log('===========================================================');
+        console.log('===========================================================');
 }
+
+var salesFileUtilities = require('./sales_file_utilities');
+
 exports.getSalesPerProduct = function(fileName){
 
     var sales = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
     var productsSold = salesFileUtilities.getProducts(sales);
     console.log(sales);
-
-    console.log('===========================================================')
-    console.log('===========================================================')
     return sales;
+
 };
 
 exports.findMostPopularCategory = function(salesFileReader){
     
-    var sales = rs.getSales("./files/NelisaSalesHistory.csv");
-
-    var productsSold = {};
-    sales.forEach(function(line){
-                //split each line into fields
-                var fields = line.split(";");
-                var productName = fields[2];
-                var qty = fields[3];
-
-                
-        
-                if(productsSold[categoryName] === undefined){
-                    productsSold[categoryName] = 0;
-                };
-
-                productsSold[categoryName] = productsSold[categoryName] + Number(qty);
-                       
-            });
-
-            var catergoryName = "";
-            var qty = 0;
-
-            for(var key in productsSold){  
-                var currentQty = productsSold[key]     
-                if (currentQty > qty) {
-                    qty = currentQty;
-                    categoryName = key;
-                };
-            }
-            
-            console.log('===========================================================')
-            console.log('===========================================================')
-  
-            console.log(categoryName +','+ qty);
-            return {
-                categoryName:categoryName,
-                qty:qty
+    var productCategories = {
+                'Fanta 500ml' : 'Beverages',
+                'Coke 500ml' : 'Beverages',
+                'Cream Soda 500ml' : 'Beverages',
+                'Shampoo 1 litre' : 'Toiletries',
+                'Soap Bar' : 'Toiletries',
+                'Mixed Sweets 5s' : 'Luxuries',
+                'Heart Chocolates' : 'Luxuries',
+                'Iwisa Pap 5kg' : 'Long_Life_Groceries',
+                'Top Class Soy Mince' : 'Long_Life_Groceries',
+                'Bread' : 'Short_Life_Groceries',
+                'Milk 1l' : 'Short_Life_Groceries',
+                'Imasi' : 'Short_Life_Groceries',
+                'Rose (plastic)' : 'Novelty_Goods',
+                'Valentine Cards' : 'Novelty_Goods',
+                'Bananas - loose' : 'Fruit',
+                'Apples - loose' : 'Fruit',
+                'Chakalaka Can' : 'Tinned_Food',
+                'Gold Dish Vegetable Curry Can' : 'Tinned_Food'
             };
 
+    var sales = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
+    var qtyPerProduct = salesFileUtilities.getProducts(sales);
 
-}
+    var qtyPerCategory = {};
 
-exports.findMostPopularCategory = function(salesFileReader){
+    for(var productName in qtyPerProduct){
+        console.log(productName);
+        var qty = qtyPerProduct[productName];
+        var categoryName = productCategories[productName];
+        console.log(categoryName);
 
-    var productsSold = {};
-    sales.forEach(function(line){
-                //split each line into fields
-                var fields = line.split(";");
-                var productName = fields[2];
-                var qty = fields[3];
+        if(qtyPerCategory[categoryName] === undefined){
+            qtyPerCategory[categoryName] = 0;
+        };
+        qtyPerCategory[categoryName] = qtyPerCategory[categoryName] + Number(qty);
+    }
 
-                
-        
-                if(productsSold[categoryName] === undefined){
-                    productsSold[categoryName] = 0;
-                };
+    console.log('productCategories...')
+    console.log(qtyPerCategory)
 
-                productsSold[categoryName] = productsSold[categoryName] + Number(qty);
-                       
-            });
+    var categoryName = "";
+    var qty = 0;
 
-            var catergoryName = "";
-            var qty = 0;
+    for(var key in qtyPerCategory){  
+        var currentQty = qtyPerCategory[key]     
+        if (currentQty > qty) {
+            qty = currentQty;
+            categoryName = key;
+        };  
+    }
+    
+    console.log('===========================================================')
+    console.log('===========================================================')
 
-            for(var key in productsSold){  
-                var currentQty = productsSold[key]     
-                if (currentQty > qty) {
-                    qty = currentQty;
-                    categoryName = key;
-                };
-            }
-            
-            console.log('===========================================================')
-            console.log('===========================================================')
-  
-            console.log(categoryName +','+ qty);
-            return {
-                categoryName:categoryName,
-                qty:qty
-            };
-
-
+     // console.log(categoryName +','+ qty);
+    console.log(productCategories);
+    return {
+        categoryName: categoryName,
+        qty:qty
+    };
 }
 
