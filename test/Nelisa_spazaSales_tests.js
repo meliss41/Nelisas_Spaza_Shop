@@ -1,7 +1,6 @@
 var assert = require("assert");
 var productsSold = require('../modules/Nelisa_Spaza_Sales');
-
-var SalesFileReader = require('../modules/read_sales');
+var SalesFileReader = require('../modules/sales_file_utilities');
 
 describe("Nelisa's spaza sales processing", function(){
 
@@ -10,22 +9,22 @@ describe("Nelisa's spaza sales processing", function(){
     	var reader = SalesFileReader.getSales('./files/NelisaSalesHistory.csv');
     	assert.equal(448, reader.length);
 
-        //assert.equal(448, productsSold.findSalesRows('./files/NelisaSalesHistory.csv').length);
     });
 
     it('should find the most popular product', function(){
-
-        var mostPopular =  productsSold;
-        var reader = mostPopular.findMostPopularProduct('./files/NelisaSalesHistory.csv');
-         assert.deepEqual({"productName":"Mixed Sweets 5s","qty":172},reader);
+        var reader = productsSold.findMostPopularProduct('./files/NelisaSalesHistory.csv');
+        assert.deepEqual({"productName":"Mixed Sweets 5s","qty":172},reader);
     });
 
-it('should find product names and push them into categories map', function(){
-
-       var products = SalesFileReader;
-       var reader = SalesFileReader.getProducts('./files/NelisaSalesHistory.csv');
-       assert.deepEqual(448,reader); 
+    it('should find all the sales rows', function(){
+        var salesPerProduct = productsSold.getSalesPerProduct('./files/NelisaSalesHistory.csv');
+         assert.deepEqual(448, salesPerProduct.length); 
 
     });
+    it('should find product names and push them into categories map', function(){
+            var salesPerProduct = productsSold.findMostPopularCategory('./files/NelisaSalesHistory.csv');
+             assert.deepEqual(448, salesPerProduct.length); 
+
+        });
         
 });
