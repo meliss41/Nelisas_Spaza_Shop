@@ -11,7 +11,7 @@ describe("Nelisa's spaza sales processing", function(){
 
     });
 
-   it('should find the most popular product', function(){
+   it('should find the most popular product plus qty', function(){
         var reader = productsSold.findMostPopularProduct('./files/NelisaSalesHistory.csv');
         assert.deepEqual({"productName":"Mixed Sweets 5s","qty":172},reader);
     });
@@ -21,7 +21,7 @@ describe("Nelisa's spaza sales processing", function(){
          assert.deepEqual(448, salesPerProduct.length); 
 
     });
-    it('should find most popular category name', function(){
+    it('should find most popular category name plus qty', function(){
             var salesPerProduct = productsSold.findMostPopularCategory('./files/NelisaSalesHistory.csv');
              assert.deepEqual(salesPerProduct, {"categoryName" : "Short_Life_Groceries", "qty" : 397}); 
 

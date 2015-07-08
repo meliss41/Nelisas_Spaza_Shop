@@ -93,8 +93,8 @@ exports.findMostPopularCategory = function(salesFileReader){
     console.log('===========================================================')
     console.log('===========================================================')
 
-     // console.log(categoryName +','+ qty);
-    console.log(productCategories);
+    console.log(categoryName +','+ qty);
+    //console.log(productCategories);
     return {
         categoryName: categoryName,
         qty:qty
