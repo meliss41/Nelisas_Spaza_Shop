@@ -26,5 +26,10 @@ describe("Nelisa's spaza sales processing", function(){
              assert.deepEqual(salesPerProduct, {"categoryName" : "Short_Life_Groceries", "qty" : 397}); 
 
         });
+    it('should find least popular category name plus qty', function(){
+            var salesPerProduct = productsSold.findLeastPopularCategory('./files/NelisaSalesHistory.csv');
+             assert.deepEqual(salesPerProduct, {"categoryName" : "Novelty_Goods", "qty" : 28}); 
+
+        });
         
 });
