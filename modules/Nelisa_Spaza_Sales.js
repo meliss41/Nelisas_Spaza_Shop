@@ -36,6 +36,8 @@ exports.getSalesPerProduct = function(salesRows){
         // console.log('===========================================================salesRows are hiden');
 
       };
+
+      
       var qtyPerCategoryMap = {};
 
       var productCategories = {
@@ -166,6 +168,7 @@ exports.getSalesPerProduct = function(salesRows){
           qty:qty
         };  
       }
+
 
 
 

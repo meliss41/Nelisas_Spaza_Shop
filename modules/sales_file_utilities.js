@@ -27,4 +27,4 @@ exports.getProducts = function(salesLines){
         });
 	return productsSold;
 
-}
+};
