@@ -54,10 +54,21 @@ describe("Nelisa's spaza sales processing", function(){
              assert.equal(earningsPerProduct); 
 
         });
-    it('should find the purchased products plus qty', function(){
-            var earningsPerProduct = purchasedProductsReader.getStockedProducts('./files/NelisaPurchases.csv');
+    it('should find the total earnings per product', function(){
+            var earningsPerProduct = purchasedProductsReader.getEarningsPerProduct('./files/NelisaPurchases.csv');
+            result = {
+                purchasedProductName : "Milk", 
+                totalCost : R289,
+            };
              assert.equal(earningsPerProduct); 
 
         });
+
+    it('should find the total earnings per category', function(){
+            var earningsPerCategory = purchasedProductsReader.getEarningsPerCategory('./files/NelisaPurchases.csv');
+             assert.equal(earningsPerCategory); 
+
+        });
+
 
 });

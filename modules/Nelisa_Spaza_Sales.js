@@ -169,6 +169,27 @@ exports.getSalesPerProduct = function(salesRows){
         };  
       }
 
+exports.getEarningsPerProduct = function(salesFileReader){
 
+           // var salesFileReader = salesFileUtilities.getSales("./files/NelisaPurchases.csv");
+           // var qtyPerProduct = salesFileUtilities.getProducts(salesFileReader);
+           // console.log(qtyPerProduct);
 
-
+            var productPurchased = {};
+  // qtyPerProduct.forEach(function(line){
+            // split each line into fields
+            // var fields = line.split(";");
+            // var productName = fields[2];
+            // var totalCost = fields[3];
+    
+            // if(productPurchased[productName] === undefined){
+                // productPurchased[productName] = 0;
+// 
+            // productPurchased[productName] = productPurchased[productName] + Number(qty);
+       // 
+            // };
+            // return productPurchased;
+            // 
+           // 
+            // }      
+    };
