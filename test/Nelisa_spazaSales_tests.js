@@ -58,7 +58,7 @@ describe("Nelisa's spaza sales processing", function(){
             var earningsPerProduct = purchasedProductsReader.getEarningsPerProduct('./files/NelisaPurchases.csv');
             result = {
                 purchasedProductName : "Milk", 
-                totalCost : R289,
+                totalCost : Number("R289".substring(1))
             };
              assert.equal(earningsPerProduct); 
 
