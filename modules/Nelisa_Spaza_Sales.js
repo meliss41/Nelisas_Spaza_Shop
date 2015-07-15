@@ -1,10 +1,10 @@
 
-    var salesFileUtilities = require('./sales_file_utilities');
+var salesFileUtilities = require('./sales_file_utilities');
 
 exports.findMostPopularProduct = function(salesFileReader){
 
       var sales = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
-      var productsSold = salesFileUtilities.getProducts(sales);
+      var productsSold = salesFileUtilities.getQtyPerProduct(sales);
 
       var productName = "";
       var qty = 0;
@@ -26,16 +26,16 @@ exports.findMostPopularProduct = function(salesFileReader){
 
     }
 
-exports.getSalesPerProduct = function(salesRows){
+exports.getSalesPerProduct = function(fileName){
 
-      salesRows = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
-      var productsSold = salesFileUtilities.getProducts(salesRows);
+      var salesRows = salesFileUtilities.getSales(fileName);
+      var totalSalesPerProduct = salesFileUtilities.getSalesPerProduct(salesRows);
         // console.log(salesRows);
-        console.log('===========================================================Above salesRows are hidden');
-        return salesRows;
+      console.log('===========================================================Above salesRows are hidden');
+      return totalSalesPerProduct;
         // console.log('===========================================================salesRows are hiden');
 
-      };
+};
 
       
       var qtyPerCategoryMap = {};
@@ -64,7 +64,7 @@ exports.getSalesPerProduct = function(salesRows){
   exports.findMostPopularCategory = function(salesFileReader){
 
         var salesFileReader = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
-        var qtyPerProduct = salesFileUtilities.getProducts(salesFileReader);
+        var qtyPerProduct = salesFileUtilities.getQtyPerProduct(salesFileReader);
 
         for(var productName in qtyPerProduct){
           console.log('===========================================================Below - productName');
@@ -106,7 +106,7 @@ exports.getSalesPerProduct = function(salesRows){
   exports.findLeastPopularProduct = function(salesFileReader){
 
       var sales = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
-      var productsSold = salesFileUtilities.getProducts(sales);
+      var productsSold = salesFileUtilities.getQtyPerProduct(sales);
 
       var productName = "";
       var qty = 10000000;
@@ -130,7 +130,7 @@ exports.getSalesPerProduct = function(salesRows){
   exports.findLeastPopularCategory = function(salesFileReader){
 
         var salesFileReader = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
-        var qtyPerProduct = salesFileUtilities.getProducts(salesFileReader);
+        var qtyPerProduct = salesFileUtilities.getQtyPerProduct(salesFileReader);
 
         for(var productName in qtyPerProduct){
           console.log('===========================================================Below - productName');

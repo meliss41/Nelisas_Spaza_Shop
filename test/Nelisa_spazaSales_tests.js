@@ -17,11 +17,6 @@ describe("Nelisa's spaza sales processing", function(){
         assert.deepEqual({"productName":"Mixed Sweets 5s","qty":172},reader);
     });
 
-    it('should find all the sales rows', function(){
-        var salesPerProduct = productsSoldReader.getSalesPerProduct('./files/NelisaSalesHistory.csv');
-         assert.deepEqual(448, salesPerProduct.length); 
-
-    });
     it('should find most popular category name plus qty', function(){
             var salesPerProduct = productsSoldReader.findMostPopularCategory('./files/NelisaSalesHistory.csv');
              assert.deepEqual(salesPerProduct, {"categoryName" : "Short_Life_Groceries", "qty" : 397}); 
@@ -55,20 +50,47 @@ describe("Nelisa's spaza sales processing", function(){
 
         });
     it('should find the total earnings per product', function(){
-            var earningsPerProduct = purchasedProductsReader.getEarningsPerProduct('./files/NelisaPurchases.csv');
-            result = {
-                purchasedProductName : "Milk", 
-                totalCost : Number("R289".substring(1))
-            };
-             assert.equal(earningsPerProduct); 
+        var salesPerProduct = productsSoldReader.getSalesPerProduct('./files/NelisaSalesHistory.csv');
+        
+        console.log(salesPerProduct);
 
-        });
+        assert.equal(1420, salesPerProduct["Milk 1l"]); 
+        assert.equal(1410, salesPerProduct["Iwisa Pap 5kg"]); 
+        assert.equal(700, salesPerProduct["Heart Chocolates"]); 
+
+    });
+// it('should find the total  Quantity per product', function(){
+//             var earningsPerProduct = purchasedProductsReader.getQtyPerProduct('./files/NelisaSalesHistory.csv');
+
+// result = { 'Milk 1l': 142,
+//   Imasi: 125,
+//   Bread: 130,
+//   'Chakalaka Can': 94,
+//   'Gold Dish Vegetable Curry Can': 86,
+//   'Fanta 500ml': 94,
+//   'Coke 500ml': 159,
+//   'Cream Soda 500ml': 75,
+//   'Iwisa Pap 5kg': 47,
+//   'Top Class Soy Mince': 98,
+//   'Shampoo 1 litre': 26,
+//   'Soap Bar': 50,
+//   'Bananas - loose': 114,
+//   'Apples - loose': 114,
+//   'Mixed Sweets 5s': 172,
+//   'Heart Chocolates': 20,
+//   'Rose (plastic)': 14,
+//   'Valentine Cards': 14 }
+
+//              assert.deepEqual(result, earningsPerProduct); 
+
+//         });
+
 
     it('should find the total earnings per category', function(){
-            var earningsPerCategory = purchasedProductsReader.getEarningsPerCategory('./files/NelisaPurchases.csv');
+            var earningsPerCategory = purchasedProductsReader.getSalesPerProductsCategory('./files/NelisaSalesHistory.csv');
              assert.equal(earningsPerCategory); 
 
-        });
+    });
 
 
 });
