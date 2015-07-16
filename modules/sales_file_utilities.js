@@ -55,9 +55,19 @@ exports.getSalesPerProduct = function(salesLines){
 
 };
 
+      
+
+
+exports.getSalesPerProductsCategory = function(fields,fileName){
+    var fields = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
+    var qtyPerProduct = salesFileUtilities.getQtyPerProduct(fields);
+      console.log("====================== below is  testin");
+      console.log(qtyPerProduct)
+
       var qtyPerCategoriesMap = {};
 
       var SalesPerProductsCategory = {
+
           'Fanta 500ml' : 'Beverages',
           'Coke 500ml' : 'Beverages',
           'Cream Soda 500ml' : 'Beverages',
@@ -79,54 +89,23 @@ exports.getSalesPerProduct = function(salesLines){
         };
 
 
-exports.getSalesPerProductsCategory = function(fields,fileName){
-    var fields = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
-    var qtyPerProduct = salesFileUtilities.getQtyPerProduct(fields);
-
-
-
-  for(var productName in qtyPerProduct){
-          console.log('===========================================================Below - productName');
-          console.log(productName);
-          var qty = qtyPerProduct[productName];
-          var categoryName = SalesPerProductsCategory[productName];
-      if(qtyPerCategoriesMap[categoryName] === undefined){
-            qtyPerCategoriesMap[categoryName] = 0;
-          };
-          qtyPerCategoriesMap[categoryName] = qtyPerCategoriesMap[categoryName] + Number(qty);
+        for(var productName in qtyPerProduct){
+            console.log('===========================================================Below - productName');
+            console.log(productName);
+            var qty = qtyPerProduct[productName];
+            var categoryName = SalesPerProductsCategory[productName];
+            if(qtyPerCategoriesMap[categoryName] === undefined){
+                  qtyPerCategoriesMap[categoryName] = 0;
+            };
+            qtyPerCategoriesMap[categoryName] = qtyPerCategoriesMap[categoryName] + Number(qty) ;
         }
+
         console.log('=========================================================== below - Popular CategoryName + Qty PerCategory map');
         console.log(qtyPerCategoriesMap);
         console.log('=========================================================== end of CategoryName + Qty PerCategory map');
         
         return qtyPerCategoriesMap;
-        // var categoryName = "";
-        // var qty = 0;
-
-        // for(var key in qtyPerCategoriesMap){  
-        //   var currentQty = qtyPerCategoriesMap[key]     
-        //   if (currentQty > qty) {
-        //     qty = currentQty;
-        //     categoryName = key;
-        //   };  
-        // }
-  
-        // console.log(categoryName +','+ qty);
-        // return currentQty
-        // var categoryName = "";
-        // var salesPrice = 0;
-
-        // for(var key in qtyPerCategoriesMap){  
-        //   var currentSalesPrice = qtyPerCategoriesMap[key]     
-        //   if (currentSalesPrice > salesPrice) {
-        //     salesPrice = currentSalesPrice;
-        //     categoryName = key;
-        //   };  
-        // }
-  
-        // console.log(qtyPerCategoriesMap +','+ salesPrice);
-        // console.log('=========================================================== Above - Most popular categoryName + qty');
-        //return qtyPerCategoriesMap 
+        
 }
 
 
