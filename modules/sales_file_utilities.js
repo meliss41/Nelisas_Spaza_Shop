@@ -1,17 +1,19 @@
 var fs = require('fs');
+var salesFileUtilities = require('./sales_file_utilities');
+
 
 exports.getSales = function(fileName){
         
-        var fileContent = fs.readFileSync(fileName, "utf8");//read files in folder
+      var fileContent = fs.readFileSync(fileName, "utf8");//read files in folder
         //split the file into rows
-        var lines = fileContent.split('\r').splice(1);
+      var lines = fileContent.split('\r').splice(1);
        return lines;
 
 }
 
 exports.getQtyPerProduct = function(salesLines){
 
-    var productsSold = {};
+      var productsSold = {};
     salesLines.forEach(function(line){
             //split each line into fields
             var fields = line.split(";");
@@ -30,7 +32,7 @@ exports.getQtyPerProduct = function(salesLines){
 };
 
 exports.getSalesPerProduct = function(salesLines){
-	var totalSalesPerProduct = {};
+	   var totalSalesPerProduct = {};
 	salesLines.forEach(function(line){
         
         //split each line into fields
@@ -53,9 +55,9 @@ exports.getSalesPerProduct = function(salesLines){
 
 };
 
-    var qtyPerCategoryMap = {};
+      var qtyPerCategoriesMap = {};
 
-    var SalesPerProductsCategory = {
+      var SalesPerProductsCategory = {
           'Fanta 500ml' : 'Beverages',
           'Coke 500ml' : 'Beverages',
           'Cream Soda 500ml' : 'Beverages',
@@ -77,40 +79,54 @@ exports.getSalesPerProduct = function(salesLines){
         };
 
 
-exports.getSalesPerProductsCategory = function(salesLines){
+exports.getSalesPerProductsCategory = function(fields,fileName){
+    var fields = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
+    var qtyPerProduct = salesFileUtilities.getQtyPerProduct(fields);
 
-    for(var productName in qtyPerProduct){
+
+
+  for(var productName in qtyPerProduct){
           console.log('===========================================================Below - productName');
           console.log(productName);
           var qty = qtyPerProduct[productName];
           var categoryName = SalesPerProductsCategory[productName];
-          console.log('===========================================================Popular categoryName - Below');
-          console.log(categoryName);
-
-          if(qtyPerCategoryMap[categoryName] === undefined){
-            qtyPerCategoryMap[categoryName] = 0;
+      if(qtyPerCategoriesMap[categoryName] === undefined){
+            qtyPerCategoriesMap[categoryName] = 0;
           };
-          qtyPerCategoryMap[categoryName] = qtyPerCategoryMap[categoryName] + Number(qty) * Number(salesPrice);;
+          qtyPerCategoriesMap[categoryName] = qtyPerCategoriesMap[categoryName] + Number(qty);
         }
         console.log('=========================================================== below - Popular CategoryName + Qty PerCategory map');
-        console.log(qtyPerCategoryMap);
+        console.log(qtyPerCategoriesMap);
         console.log('=========================================================== end of CategoryName + Qty PerCategory map');
         
+        return qtyPerCategoriesMap;
+        // var categoryName = "";
+        // var qty = 0;
 
-        var categoryName = "";
-        var qty = 0;
-
-        for(var key in qtyPerCategoryMap){  
-          var currentQty = qtyPerCategoryMap[key]     
-          if (currentQty > qty) {
-            qty = currentQty;
-            categoryName = key;
-          };  
-        }
+        // for(var key in qtyPerCategoriesMap){  
+        //   var currentQty = qtyPerCategoriesMap[key]     
+        //   if (currentQty > qty) {
+        //     qty = currentQty;
+        //     categoryName = key;
+        //   };  
+        // }
   
-        console.log(categoryName +','+ qty);
-        console.log('=========================================================== Above - Most popular categoryName + qty');
+        // console.log(categoryName +','+ qty);
+        // return currentQty
+        // var categoryName = "";
+        // var salesPrice = 0;
 
+        // for(var key in qtyPerCategoriesMap){  
+        //   var currentSalesPrice = qtyPerCategoriesMap[key]     
+        //   if (currentSalesPrice > salesPrice) {
+        //     salesPrice = currentSalesPrice;
+        //     categoryName = key;
+        //   };  
+        // }
+  
+        // console.log(qtyPerCategoriesMap +','+ salesPrice);
+        // console.log('=========================================================== Above - Most popular categoryName + qty');
+        //return qtyPerCategoriesMap 
 }
 
 
