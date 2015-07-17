@@ -60,11 +60,9 @@ exports.getSalesPerProduct = function(salesLines){
 
 exports.getSalesPerProductsCategory = function(fields,fileName){
     var fields = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
-    var qtyPerProduct = salesFileUtilities.getQtyPerProduct(fields);
-      console.log("====================== below is  testin");
-      console.log(qtyPerProduct)
+    var salesPrice = salesFileUtilities.getSalesPerProduct(fields);
 
-      var qtyPerCategoriesMap = {};
+      var totalCostPerCategoryMap = {};
 
       var SalesPerProductsCategory = {
 
@@ -88,23 +86,17 @@ exports.getSalesPerProductsCategory = function(fields,fileName){
           'Gold Dish Vegetable Curry Can' : 'Tinned_Food'
         };
 
-
-        for(var productName in qtyPerProduct){
-            console.log('===========================================================Below - productName');
-            console.log(productName);
-            var qty = qtyPerProduct[productName];
+        for(var productName in salesPrice){
+            var salesAmount = salesPrice[productName];
             var categoryName = SalesPerProductsCategory[productName];
-            if(qtyPerCategoriesMap[categoryName] === undefined){
-                  qtyPerCategoriesMap[categoryName] = 0;
+            if(totalCostPerCategoryMap[categoryName] === undefined){
+               totalCostPerCategoryMap[categoryName] = 0;
             };
-            qtyPerCategoriesMap[categoryName] = qtyPerCategoriesMap[categoryName] + Number(qty) ;
+            totalCostPerCategoryMap[categoryName] += Number(salesAmount) ;
         }
-
         console.log('=========================================================== below - Popular CategoryName + Qty PerCategory map');
-        console.log(qtyPerCategoriesMap);
-        console.log('=========================================================== end of CategoryName + Qty PerCategory map');
-        
-        return qtyPerCategoriesMap;
+        console.log(totalCostPerCategoryMap)
+        return totalCostPerCategoryMap;
         
 }
 

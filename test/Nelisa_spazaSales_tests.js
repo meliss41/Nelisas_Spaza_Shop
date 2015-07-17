@@ -63,16 +63,16 @@ describe("Nelisa's spaza sales processing", function(){
 
     it('should find the total earnings per category', function(){
         var salesPerProduct = SalesFileProcessing.getSalesPerProductsCategory('./files/NelisaSalesHistory.csv');                     
-                    console.log(salesPerProduct);
+                    
 
-                         assert.equal(6110, salesPerProduct['Short_Life_Groceries']);
-                         assert.equal(180, salesPerProduct['Tinned_Food']);
-                         assert.equal(328, salesPerProduct['Beverages']);
-                         assert.equal(145, salesPerProduct['Long_Life_Groceries']);
-                         assert.equal(76, salesPerProduct['Toiletries']);
-                         assert.equal(228, salesPerProduct['Fruit']);
-                         assert.equal(192, salesPerProduct['Luxuries']);
-                         assert.equal(2, salesPerProduct['Novelty_Goods']);
+                         assert.equal(6105, salesPerProduct['Short_Life_Groceries']);
+                         assert.equal(1714, salesPerProduct['Tinned_Food']);
+                         assert.equal(2207, salesPerProduct['Beverages']);
+                         assert.equal(2586, salesPerProduct['Long_Life_Groceries']);
+                         assert.equal(1080, salesPerProduct['Toiletries']);
+                         assert.equal(456, salesPerProduct['Fruit']);
+                         assert.equal(1155, salesPerProduct['Luxuries']);
+                         assert.equal(266, salesPerProduct['Novelty_Goods']);
 
              //assert.equal(earningsPerProductsCategory ,result); 
          });
