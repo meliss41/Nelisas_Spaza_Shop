@@ -5,7 +5,8 @@
 		var sales = salesFileUtilities.getSales("./files/NelisaPurchases.csv");
 		var earningsPerProducts = salesFileUtilities.getQtyPerProduct(sales);
 		console.log('===========================================================below - Purchased products');
-		console.log(sales);
+		//console.log(sales);
+        console.log('=========================================================== above - Purchased products are hidden')
 
 };
 		

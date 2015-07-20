@@ -36,19 +36,7 @@ describe("Nelisa's spaza sales processing", function(){
         });
 
 });
-   describe("Nelisa's spaza sales earnings  file processing", function(){ 
-
-    it('should find the purchases rows in the file to get the legth of lines', function(){
-           var purchasedProducts = SalesFileProcessing.getSales("./files/NelisaPurchases.csv")
-             assert.equal(153, purchasedProducts.length); 
-
-        });
-
-    it('should find the purchased products plus qty', function(){
-            var earningsPerProduct = purchasedProductsReader.findSalesEarningsRows('./files/NelisaPurchases.csv');
-             assert.equal(earningsPerProduct); 
-
-        });
+   describe("Nelisa's spaza sales earnings file processing", function(){
 
     it('should find the total earnings per product', function(){
         var salesPerProduct = productsSoldReader.getSalesPerProduct('./files/NelisaSalesHistory.csv');
@@ -78,3 +66,33 @@ describe("Nelisa's spaza sales processing", function(){
          });
 
 });
+
+describe("Nelisa's spaza sales purchases file processing",function(){
+
+    it('should find the purchases rows in the file to get the length of lines from csv', function(){
+           var purchasedProducts = SalesFileProcessing.getSales("./files/NelisaPurchases.csv");
+             assert.equal(153, purchasedProducts.length); 
+        });
+
+    it('should find the purchased products rows', function(){
+            var earningsPerProduct = purchasedProductsReader.findSalesEarningsRows('./files/NelisaPurchases.csv');
+             assert.equal(earningsPerProduct); 
+
+        });
+
+    it('should find the earnings per product from Nelisas purchases file', function(){
+            var salesPerProduct = SalesFileProcessing.getEarningsPerProduct('./files/NelisaPurchases.csv');
+
+             assert.equal(1420, salesPerProduct["Milk 1l"]); 
+             assert.equal(1410, salesPerProduct["Iwisa Pap 5kg"]); 
+             assert.equal(700, salesPerProduct["Heart Chocolates"]);
+            // assert.equal(result)
+        });
+
+    it('should find the most profitable product',function(){
+              var mostProfitableProduct = productsSoldReader.getMostProfitableProduct("./files/NelisaPurchases.csv");
+                assert.equal(476,mostProfitableProduct['Milk']);
+        });
+
+});
+
