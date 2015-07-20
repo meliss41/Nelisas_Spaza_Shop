@@ -81,9 +81,10 @@ describe("Nelisa's spaza sales purchases file processing",function(){
         });
 
     it('should find the earnings per product from Nelisas purchases file', function(){
-            var salesPerProduct = SalesFileProcessing.getEarningsPerProduct('./files/NelisaPurchases.csv');
+//var purchasedProductsReader = require('../modules/Nelisa_Spaza_Sales_earnings');
+            var salesPerProduct = purchasedProductsReader.getTotalCostPerProduct('./files/NelisaPurchases.csv');
 
-             assert.equal(1420, salesPerProduct["Milk 1l"]); 
+             assert.equal(1061.5, salesPerProduct["Milk 1l"]); 
              assert.equal(1410, salesPerProduct["Iwisa Pap 5kg"]); 
              assert.equal(700, salesPerProduct["Heart Chocolates"]);
             // assert.equal(result)

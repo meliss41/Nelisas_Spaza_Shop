@@ -41,31 +41,34 @@ exports.getEarningsPerCategory = function(fileName){
 
     }
 
-// exports.getEarningsPerProduct = function(salesLines){
+ exports.getTotalCostPerProduct = function(salesLines){
 
-//         var sales = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
-//         var productsSold = salesFileUtilities.getQtyPerProduct(sales);
-//         totalCost = {};
-//     purchasedProductsMap = {};
-//     sales.forEach(function(line){
-//             //split each line into fields
-//             var fields = line.split(";");
-//             var productName = fields[2];
-//             var qty = fields[4];
-//             var amountEarned = fields[5]
+         var sales = salesFileUtilities.getSales("./files/NelisaPurchases.csv");
+         var productsSold = salesFileUtilities.getQtyPerProduct(sales);
+         //var totalCost = {};
+         var totalProductPurchasedMap = {};
+     sales.forEach(function(line){
+             //split each line into fields
+            var fields = line.split(";");
+             var productName = fields[2];
+             var qty = fields[3];
+             var productPrice = fields[5];
+             productPrice = productPrice.substring(1);
+             productPrice = productPrice.replace(",", ".");
+             
     
-//             if(purchasedProductsMap[productName] === undefined){
-//                 purchasedProductsMap[productName] = 0;
-//             };
-//             purchasedProductsMap[productName] = purchasedProductsMap[productName] + Number(qty);  
+             if(totalProductPurchasedMap[productName] === undefined){
+                 totalProductPurchasedMap[productName] = 0;
+             };
+             totalProductPurchasedMap[productName] += Number(productPrice);  
+                });
+          //    //if (totalCost[qty] === undefined) {
+          //     totalCost[productName] = 0;  
+          //     } 
+          //     totalCost[productName] += parseInt(productPrice.substring(1));   
+          // });
+     //console.log(totalCost);
+       console.log(totalProductPurchasedMap);
+     return totalProductPurchasedMap;
 
-//         //     if (totalCost[qty] === undefined) {
-//         //     totalCost[productName] = 0;  
-//         //     } 
-//         //     totalCost[productName] += parseInt(amountEarned.substring(1));   
-//         // });
-//     console.log(totalCost);
-//     //  console.log(purchasedProductsMap);
-//     return totalCost;
-
-// }
+ };
