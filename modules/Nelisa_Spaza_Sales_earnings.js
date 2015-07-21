@@ -49,7 +49,7 @@ exports.getEarningsPerCategory = function(fileName){
          var totalProductPurchasedMap = {};
      sales.forEach(function(line){
              //split each line into fields
-            var fields = line.split(";");
+             var fields = line.split(";");
              var productName = fields[2];
              var qty = fields[3];
              var productPrice = fields[5];
@@ -68,7 +68,7 @@ exports.getEarningsPerCategory = function(fileName){
           //     totalCost[productName] += parseInt(productPrice.substring(1));   
           // });
      //console.log(totalCost);
-       console.log(totalProductPurchasedMap);
+     console.log(totalProductPurchasedMap);
      return totalProductPurchasedMap;
 
  };

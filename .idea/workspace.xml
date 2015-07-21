@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1489bb8-8b7d-4c56-8cfa-edbc6edcdde0" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/files/.~lock.NelisaPurchases.csv#" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/earningsPerProduct.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/Nelisa_Spaza_Sales.js" afterPath="$PROJECT_DIR$/modules/Nelisa_Spaza_Sales.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/Nelisa_Spaza_Sales_earnings.js" afterPath="$PROJECT_DIR$/modules/Nelisa_Spaza_Sales_earnings.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/Nelisa_spazaSales_tests.js" afterPath="$PROJECT_DIR$/test/Nelisa_spazaSales_tests.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/sales_file_utilities.js" afterPath="$PROJECT_DIR$/modules/sales_file_utilities.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Nelisas_Spaza_Shop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,8 +32,8 @@
       <file leaf-file-name="Nelisa_spazaSales_tests.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/Nelisa_spazaSales_tests.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
-              <caret line="78" column="4" selection-start-line="78" selection-start-column="4" selection-end-line="78" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.12948518">
+              <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -38,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/modules/sales_file_utilities.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="22" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="22" />
+              <caret line="34" column="30" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -48,7 +53,17 @@
         <entry file="file://$PROJECT_DIR$/modules/Nelisa_Spaza_Sales_earnings.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="77" selection-start-line="45" selection-start-column="77" selection-end-line="45" selection-end-column="77" />
+              <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Nelisa_Spaza_Sales.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/Nelisa_Spaza_Sales.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="174" column="40" selection-start-line="174" selection-start-column="40" selection-end-line="174" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -59,16 +74,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-2.7666667">
               <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Nelisa_Spaza_Sales.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/Nelisa_Spaza_Sales.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="87" column="20" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -93,9 +98,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/modules/Nelisa_Spaza_Sales_earnings.js" />
         <option value="$PROJECT_DIR$/modules/Nelisa_Spaza_Sales.js" />
         <option value="$PROJECT_DIR$/modules/sales_file_utilities.js" />
-        <option value="$PROJECT_DIR$/modules/Nelisa_Spaza_Sales_earnings.js" />
         <option value="$PROJECT_DIR$/test/Nelisa_spazaSales_tests.js" />
       </list>
     </option>
@@ -112,7 +117,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-1301" />
-    <option name="y" value="24" />
+    <option name="y" value="-744" />
     <option name="width" value="1301" />
     <option name="height" value="744" />
   </component>
@@ -155,20 +160,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Nelisas_Spaza_Shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nelisas_Spaza_Shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nelisas_Spaza_Shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -280,8 +271,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1301" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="-1301" y="-744" width="1301" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -289,7 +280,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2490392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27719823" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5394933" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5394933" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -322,18 +313,8 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/modules/Nelisa_Spaza_Sales_earnings.js</url>
-          <line>8</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/modules/Nelisa_Spaza_Sales_earnings.js</url>
-          <line>11</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/modules/Nelisa_Spaza_Sales.js</url>
-          <line>63</line>
+          <line>64</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -341,8 +322,18 @@
           <line>95</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/modules/Nelisa_Spaza_Sales_earnings.js</url>
+          <line>12</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/modules/Nelisa_Spaza_Sales_earnings.js</url>
+          <line>30</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="19" />
+      <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -619,22 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/sales_file_utilities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="22" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/Nelisa_Spaza_Sales_earnings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="77" selection-start-line="45" selection-start-column="77" selection-end-line="45" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Stories.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.7666667">
@@ -643,18 +618,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/modules/Nelisa_Spaza_Sales_earnings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/sales_file_utilities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="30" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/modules/Nelisa_Spaza_Sales.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="87" column="20" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
+          <caret line="174" column="40" selection-start-line="174" selection-start-column="40" selection-end-line="174" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/Nelisa_spazaSales_tests.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="78" column="4" selection-start-line="78" selection-start-column="4" selection-end-line="78" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.12948518">
+          <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
           <folding />
         </state>
       </provider>

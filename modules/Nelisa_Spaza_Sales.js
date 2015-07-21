@@ -1,5 +1,6 @@
 
 var salesFileUtilities = require('./sales_file_utilities');
+var salesAccessories = require('./Nelisa_Spaza_Sales_earnings');
 
 exports.findMostPopularProduct = function(salesFileReader){
 
@@ -26,10 +27,10 @@ exports.findMostPopularProduct = function(salesFileReader){
 
     }
 
-exports.getSalesPerProduct = function(fileName){
+exports.getSaleCostsPerProduct = function(fileName){
 
       var salesRows = salesFileUtilities.getSales(fileName);
-      var totalSalesPerProduct = salesFileUtilities.getSalesPerProduct(salesRows);
+      var totalSalesPerProduct = salesFileUtilities.getSaleCostsPerProduct(salesRows);
         // console.log(salesRows);
       console.log('===========================================================Above salesRows are hidden');
       return totalSalesPerProduct;
@@ -167,5 +168,13 @@ exports.getSalesPerProduct = function(fileName){
           categoryName: categoryName,
           qty:qty
         };  
-      }
+      };
+  exports.findMostProfitableProduct = function(salesLines,fileName){
+    var productsSoldTotal = salesAccessories.getTotalCostPerProduct(fileName);
+    return productsSoldTotal;
+      //var purchasedProductsTotal = salesFileUtilities.get
+
+
+
+}
 

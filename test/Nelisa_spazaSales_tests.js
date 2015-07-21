@@ -38,8 +38,8 @@ describe("Nelisa's spaza sales processing", function(){
 });
    describe("Nelisa's spaza sales earnings file processing", function(){
 
-    it('should find the total earnings per product', function(){
-        var salesPerProduct = productsSoldReader.getSalesPerProduct('./files/NelisaSalesHistory.csv');
+    it('should find the total costs per product', function(){
+        var salesPerProduct = productsSoldReader.getSaleCostsPerProduct('./files/NelisaSalesHistory.csv');
         
         console.log(salesPerProduct);
 
@@ -49,10 +49,9 @@ describe("Nelisa's spaza sales processing", function(){
 
     });
 
-    it('should find the total earnings per category', function(){
+    it('should find the total cost per category', function(){
         var salesPerProduct = SalesFileProcessing.getSalesPerProductsCategory('./files/NelisaSalesHistory.csv');                     
                     
-
                          assert.equal(6105, salesPerProduct['Short_Life_Groceries']);
                          assert.equal(1714, salesPerProduct['Tinned_Food']);
                          assert.equal(2207, salesPerProduct['Beverages']);
@@ -61,8 +60,6 @@ describe("Nelisa's spaza sales processing", function(){
                          assert.equal(456, salesPerProduct['Fruit']);
                          assert.equal(1155, salesPerProduct['Luxuries']);
                          assert.equal(266, salesPerProduct['Novelty_Goods']);
-
-             //assert.equal(earningsPerProductsCategory ,result); 
          });
 
 });
@@ -80,12 +77,12 @@ describe("Nelisa's spaza sales purchases file processing",function(){
 
         });
 
-    it('should find the earnings per product from Nelisas purchases file', function(){
-//var purchasedProductsReader = require('../modules/Nelisa_Spaza_Sales_earnings');
+    it('should find the total Costs per product from Nelisas purchases file', function(){
             var salesPerProduct = purchasedProductsReader.getTotalCostPerProduct('./files/NelisaPurchases.csv');
+
              assert.equal(2238, salesPerProduct["Imasi"]);
              assert.equal(2070, salesPerProduct["Mixed Sweets 5s"]);
-             assert.equal(1270, salesPerProduct["Bread"]);  
+             assert.equal(1270, salesPerProduct["Bread"]);
              assert.equal(1061.5, salesPerProduct["Milk 1l"]);
              assert.equal(1020, salesPerProduct["Iwisa Pap 5kg"]);
              assert.equal(808, salesPerProduct["Top Class Soy Mince"]);  
@@ -103,7 +100,8 @@ describe("Nelisa's spaza sales purchases file processing",function(){
         });
 
     it('should find the most profitable product',function(){
-              var mostProfitableProduct = productsSoldReader.getMostProfitableProduct("./files/NelisaPurchases.csv");
+              var mostProfitableProduct = productsSoldReader.findMostProfitableProduct("./files/NelisaPurchases.csv");
+                console.log(mostProfitableProduct);
              assert.equal(476,mostProfitableProduct['Milk']);
         });
 
