@@ -60,7 +60,7 @@ exports.getEarningsPerCategory = function(fileName){
              if(totalProductPurchasedMap[productName] === undefined){
                  totalProductPurchasedMap[productName] = 0;
              };
-             totalProductPurchasedMap[productName] += Number(productPrice);  
+             totalProductPurchasedMap[productName] = totalProductPurchasedMap[productName] + Number(productPrice);  
                 });
           //    //if (totalCost[qty] === undefined) {
           //     totalCost[productName] = 0;  

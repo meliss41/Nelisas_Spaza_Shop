@@ -83,16 +83,28 @@ describe("Nelisa's spaza sales purchases file processing",function(){
     it('should find the earnings per product from Nelisas purchases file', function(){
 //var purchasedProductsReader = require('../modules/Nelisa_Spaza_Sales_earnings');
             var salesPerProduct = purchasedProductsReader.getTotalCostPerProduct('./files/NelisaPurchases.csv');
-
-             assert.equal(1061.5, salesPerProduct["Milk 1l"]); 
-             assert.equal(1410, salesPerProduct["Iwisa Pap 5kg"]); 
-             assert.equal(700, salesPerProduct["Heart Chocolates"]);
-            // assert.equal(result)
+             assert.equal(2238, salesPerProduct["Imasi"]);
+             assert.equal(2070, salesPerProduct["Mixed Sweets 5s"]);
+             assert.equal(1270, salesPerProduct["Bread"]);  
+             assert.equal(1061.5, salesPerProduct["Milk 1l"]);
+             assert.equal(1020, salesPerProduct["Iwisa Pap 5kg"]);
+             assert.equal(808, salesPerProduct["Top Class Soy Mince"]);  
+             assert.equal(500, salesPerProduct["Heart Chocolates"]);
+             assert.equal(676, salesPerProduct["Chakalaka Can"]); 
+             assert.equal(598.5, salesPerProduct["Coke 500ml"]);
+             assert.equal(520, salesPerProduct["Shampoo 1 litre"]);
+             assert.equal(200, salesPerProduct["Rose (plastic)"]); 
+             assert.equal(479, salesPerProduct["Gold Dish Vegetable Curry Can"]);
+             assert.equal(433.5, salesPerProduct["Fanta 500ml"]);  
+             assert.equal(357, salesPerProduct["Cream Soda 500ml"]); 
+             assert.equal(156, salesPerProduct["Soap Bar"]); 
+             assert.equal(72, salesPerProduct["Bananas - loose"]);
+             assert.equal(40, salesPerProduct["Valentine Cards"]); 
         });
 
     it('should find the most profitable product',function(){
               var mostProfitableProduct = productsSoldReader.getMostProfitableProduct("./files/NelisaPurchases.csv");
-                assert.equal(476,mostProfitableProduct['Milk']);
+             assert.equal(476,mostProfitableProduct['Milk']);
         });
 
 });
