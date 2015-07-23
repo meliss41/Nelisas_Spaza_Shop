@@ -40,8 +40,6 @@ describe("Nelisa's spaza sales processing", function(){
 
     it('should find the total costs per product', function(){
         var salesPerProduct = productsSoldReader.getSaleCostsPerProduct('./files/NelisaSalesHistory.csv');
-        
-        console.log(salesPerProduct);
 
         assert.equal(1420, salesPerProduct["Milk 1l"]); 
         assert.equal(1410, salesPerProduct["Iwisa Pap 5kg"]); 
@@ -78,32 +76,42 @@ describe("Nelisa's spaza sales purchases file processing",function(){
         });
 
     it('should find the total Costs per product from Nelisas purchases file', function(){
-            var salesPerProduct = purchasedProductsReader.getTotalCostPerProduct('./files/NelisaPurchases.csv');
+        var purchasedProductsCosts = purchasedProductsReader.getPurchTotalCostPerProduct('./files/NelisaPurchases.csv');
+            //var productsSoldCosts = purchasedProductsReader.getTotalCostPerProduct('./files/NelisaSalesHistory.csv');
 
-             assert.equal(2238, salesPerProduct["Imasi"]);
-             assert.equal(2070, salesPerProduct["Mixed Sweets 5s"]);
-             assert.equal(1270, salesPerProduct["Bread"]);
-             assert.equal(1061.5, salesPerProduct["Milk 1l"]);
-             assert.equal(1020, salesPerProduct["Iwisa Pap 5kg"]);
-             assert.equal(808, salesPerProduct["Top Class Soy Mince"]);  
-             assert.equal(500, salesPerProduct["Heart Chocolates"]);
-             assert.equal(676, salesPerProduct["Chakalaka Can"]); 
-             assert.equal(598.5, salesPerProduct["Coke 500ml"]);
-             assert.equal(520, salesPerProduct["Shampoo 1 litre"]);
-             assert.equal(200, salesPerProduct["Rose (plastic)"]); 
-             assert.equal(479, salesPerProduct["Gold Dish Vegetable Curry Can"]);
-             assert.equal(433.5, salesPerProduct["Fanta 500ml"]);  
-             assert.equal(357, salesPerProduct["Cream Soda 500ml"]); 
-             assert.equal(156, salesPerProduct["Soap Bar"]); 
-             assert.equal(72, salesPerProduct["Bananas - loose"]);
-             assert.equal(40, salesPerProduct["Valentine Cards"]); 
+             assert.equal(2238, purchasedProductsCosts["Imasi"]);
+             assert.equal(2070, purchasedProductsCosts["Mixed Sweets 5s"]);
+             assert.equal(1270, purchasedProductsCosts["Bread"]);
+             assert.equal(1061.5, purchasedProductsCosts["Milk 1l"]);
+             assert.equal(1020, purchasedProductsCosts["Iwisa Pap 5kg"]);
+             assert.equal(808, purchasedProductsCosts["Top Class Soy Mince"]);  
+             assert.equal(500, purchasedProductsCosts["Heart Chocolates"]);
+             assert.equal(676, purchasedProductsCosts["Chakalaka Can"]); 
+             assert.equal(598.5, purchasedProductsCosts["Coke 500ml"]);
+             assert.equal(520, purchasedProductsCosts["Shampoo 1 litre"]);
+             assert.equal(200, purchasedProductsCosts["Rose (plastic)"]); 
+             assert.equal(479, purchasedProductsCosts["Gold Dish Vegetable Curry Can"]);
+             assert.equal(433.5, purchasedProductsCosts["Fanta 500ml"]);  
+             assert.equal(357, purchasedProductsCosts["Cream Soda 500ml"]); 
+             assert.equal(156, purchasedProductsCosts["Soap Bar"]); 
+             assert.equal(72, purchasedProductsCosts["Bananas - loose"]);
+             assert.equal(40, purchasedProductsCosts["Valentine Cards"]); 
         });
 
-    it('should find the most profitable product',function(){
-              var mostProfitableProduct = productsSoldReader.findMostProfitableProduct("./files/NelisaPurchases.csv");
-                console.log(mostProfitableProduct);
-             assert.equal(476,mostProfitableProduct['Milk']);
-        });
+    it('should find the total costs per product from NelisasSalesHistory', function(){
+        var productsSoldCosts = purchasedProductsReader.getHistTotalCostPerProduct('./files/NelisaSalesHistory.csv');
+
+        assert.equal(1420, productsSoldCosts["Milk 1l"]); 
+        assert.equal(1410, productsSoldCosts["Iwisa Pap 5kg"]); 
+        assert.equal(700, productsSoldCosts["Heart Chocolates"]); 
+
+    });
+
+    // it('should find the most profitable product',function(){
+    //           var mostProfitableProduct = productsSoldReader.findMostProfitableProduct("./files/NelisaPurchases.csv");
+    //             //console.log(mostProfitableProduct);
+    //          assert.equal(476,mostProfitableProduct['Milk']);
+    //     });
 
 });
 

@@ -41,9 +41,9 @@ exports.getEarningsPerCategory = function(fileName){
 
     }
 
- exports.getTotalCostPerProduct = function(salesLines){
+ exports.getPurchTotalCostPerProduct = function(salesLines){
 
-         var sales = salesFileUtilities.getSales("./files/NelisaPurchases.csv");
+         var sales = salesFileUtilities.getSales(salesLines);
          var productsSold = salesFileUtilities.getQtyPerProduct(sales);
          //var totalCost = {};
          var totalProductPurchasedMap = {};
@@ -62,12 +62,34 @@ exports.getEarningsPerCategory = function(fileName){
              };
              totalProductPurchasedMap[productName] = totalProductPurchasedMap[productName] + Number(productPrice);  
                 });
-          //    //if (totalCost[qty] === undefined) {
-          //     totalCost[productName] = 0;  
-          //     } 
-          //     totalCost[productName] += parseInt(productPrice.substring(1));   
-          // });
-     //console.log(totalCost);
+
+     console.log(totalProductPurchasedMap);
+     return totalProductPurchasedMap;
+
+ };
+
+ exports.getHistTotalCostPerProduct = function(salesLines){
+
+         var sales = salesFileUtilities.getSales(salesLines);
+         var productsSold = salesFileUtilities.getQtyPerProduct(sales);
+         //var totalCost = {};
+         var totalProductPurchasedMap = {};
+     sales.forEach(function(line){
+             //split each line into fields
+             var fields = line.split(";");
+             var productName = fields[2];
+             var qty = fields[3];
+             var productPrice = fields[4];
+             productPrice = productPrice.substring(1);
+             productPrice = productPrice.replace(",", ".");
+             
+    
+             if(totalProductPurchasedMap[productName] === undefined){
+                 totalProductPurchasedMap[productName] = 0;
+             };
+             totalProductPurchasedMap[productName] = totalProductPurchasedMap[productName] + Number(productPrice);  
+                });
+
      console.log(totalProductPurchasedMap);
      return totalProductPurchasedMap;
 

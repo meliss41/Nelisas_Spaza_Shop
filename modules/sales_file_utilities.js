@@ -33,8 +33,7 @@ exports.getQtyPerProduct = function(salesLines){
 
 exports.getSaleCostsPerProduct = function(salesLines){
 	   var totalSalesPerProduct = {};
-	salesLines.forEach(function(line){
-        
+	 salesLines.forEach(function(line){
         //split each line into fields
         var fields = line.split(";");
         var productName = fields[2];
@@ -55,10 +54,7 @@ exports.getSaleCostsPerProduct = function(salesLines){
 
 };
 
-      
-
-
-exports.getSalesPerProductsCategory = function(fields,fileName){
+exports.getSalesPerProductsCategory = function(fields,salesPrice){
     var fields = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
     var salesPrice = salesFileUtilities.getSaleCostsPerProduct(fields);
 

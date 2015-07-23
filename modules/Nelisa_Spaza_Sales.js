@@ -11,15 +11,15 @@ exports.findMostPopularProduct = function(salesFileReader){
       var qty = 0;
 
       for(var key in productsSold){  
-        var currentQty = productsSold[key]     
+        var currentQty = productsSold[key] ;
         if (currentQty > qty) {
             qty = currentQty;
             productName = key;
         };
       }
 
-      console.log(productName +','+ qty);
-      console.log('===========================================================Above productName & qty');
+      //console.log(productName +','+ qty);
+      //console.log('===========================================================Above productName & qty');
       return {
           productName:productName,
           qty:qty
@@ -68,11 +68,11 @@ exports.getSaleCostsPerProduct = function(fileName){
         var qtyPerProduct = salesFileUtilities.getQtyPerProduct(salesFileReader);
 
         for(var productName in qtyPerProduct){
-          console.log('===========================================================Below - productName');
-          console.log(productName);
+          //console.log('===========================================================Below - productName');
+          //console.log(productName);
           var qty = qtyPerProduct[productName];
           var categoryName = productCategories[productName];
-          console.log('===========================================================Popular categoryName - Below');
+          //console.log('===========================================================Popular categoryName - Below');
           console.log(categoryName);
 
           if(qtyPerCategoryMap[categoryName] === undefined){
@@ -139,9 +139,6 @@ exports.getSaleCostsPerProduct = function(fileName){
           var qty = qtyPerProduct[productName];
           var categoryName = productCategories[productName];
           console.log('=========================================================== categoryName - Below');
-          console.log(categoryName);
-
-        
         
           if(qtyPerCategoryMap[categoryName] === undefined){
              qtyPerCategoryMap[categoryName] = 0;
@@ -169,12 +166,13 @@ exports.getSaleCostsPerProduct = function(fileName){
           qty:qty
         };  
       };
-  exports.findMostProfitableProduct = function(salesLines,fileName){
-    var productsSoldTotal = salesAccessories.getTotalCostPerProduct(fileName);
-    return productsSoldTotal;
-      //var purchasedProductsTotal = salesFileUtilities.get
+//   exports.findMostProfitableProduct = function(salesLines,fileName){
+//     var productsSoldTotal = salesAccessories.getTotalCostPerProduct("./files/NelisaSalesHistory.csv");
+//     var purchasedProductsTotal = salesAccessories.getTotalCostPerProduct()
+//     return productsSoldTotal;
+//       //var purchasedProductsTotal = salesFileUtilities.get
 
 
 
-}
+// }
 
