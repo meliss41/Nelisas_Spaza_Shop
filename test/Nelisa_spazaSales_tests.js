@@ -76,7 +76,7 @@ describe("Nelisa's spaza sales purchases file processing",function(){
         });
 
     it('should find the total Costs per product from Nelisas purchases file', function(){
-        var purchasedProductsCosts = purchasedProductsReader.getPurchTotalCostPerProduct('./files/NelisaPurchases.csv');
+        var purchasedProductsCosts = purchasedProductsReader.getPurchTotalCostsPerProduct('./files/NelisaPurchases.csv');
             //var productsSoldCosts = purchasedProductsReader.getTotalCostPerProduct('./files/NelisaSalesHistory.csv');
 
              assert.equal(2238, purchasedProductsCosts["Imasi"]);
@@ -99,7 +99,7 @@ describe("Nelisa's spaza sales purchases file processing",function(){
         });
 
     it('should find the total costs per product from NelisasSalesHistory', function(){
-        var productsSoldCosts = purchasedProductsReader.getHistTotalCostPerProduct('./files/NelisaSalesHistory.csv');
+        var productsSoldCosts = purchasedProductsReader.getHistTotalCostsPerProduct('./files/NelisaSalesHistory.csv');
 
         assert.equal(1420, productsSoldCosts["Milk 1l"]); 
         assert.equal(1410, productsSoldCosts["Iwisa Pap 5kg"]); 
@@ -107,11 +107,11 @@ describe("Nelisa's spaza sales purchases file processing",function(){
 
     });
 
-    // it('should find the most profitable product',function(){
-    //           var mostProfitableProduct = productsSoldReader.findMostProfitableProduct("./files/NelisaPurchases.csv");
-    //             //console.log(mostProfitableProduct);
-    //          assert.equal(476,mostProfitableProduct['Milk']);
-    //     });
+    it('should find the most profitable product',function(){
+              var mostProfitableProduct = productsSoldReader.findMostProfitableProduct("./files/NelisaPurchases.csv");
+                //console.log(mostProfitableProduct);
+             assert.equal(476,mostProfitableProduct['Milk']);
+        });
 
 });
 
