@@ -18,8 +18,6 @@ exports.findMostPopularProduct = function(salesFileReader){
         };
     }
 
-    //console.log(productName +','+ qty);
-    //console.log('===========================================================Above productName & qty');
     return {
         productName:productName,
         qty:qty
@@ -31,10 +29,9 @@ exports.getSaleCostsPerProduct = function(fileName){
 
     var salesRows = salesFileUtilities.getSales(fileName);
     var totalSalesPerProduct = salesFileUtilities.getSaleCostsPerProduct(salesRows);
-    // console.log(salesRows);
-    console.log('===========================================================Above salesRows are hidden');
+    console.log('=========================================================== below - salesRows are hidden');
     return totalSalesPerProduct;
-    // console.log('===========================================================salesRows are hiden');
+    console.log('=========================================================== Above - salesRows are hiden');
 
 };
 
@@ -68,12 +65,9 @@ exports.findMostPopularCategory = function(salesFileReader){
     var qtyPerProduct = salesFileUtilities.getQtyPerProduct(salesFileReader);
 
     for(var productName in qtyPerProduct){
-        //console.log('===========================================================Below - productName');
-        //console.log(productName);
+       
         var qty = qtyPerProduct[productName];
         var categoryName = productCategories[productName];
-        //console.log('===========================================================Popular categoryName - Below');
-        console.log(categoryName);
 
         if(qtyPerCategoryMap[categoryName] === undefined){
             qtyPerCategoryMap[categoryName] = 0;
@@ -119,7 +113,7 @@ exports.findLeastPopularProduct = function(salesFileReader){
             productName = key;
         };
     }
-    console.log('===========================================================Above productName & qty');
+    console.log('===========================================================below -leastPopular productName & qty');
     console.log(productName +','+ qty);
     return {
         productName:productName,
@@ -138,8 +132,6 @@ exports.findLeastPopularCategory = function(salesFileReader){
         console.log(productName);
         var qty = qtyPerProduct[productName];
         var categoryName = productCategories[productName];
-        console.log('=========================================================== categoryName - Below');
-
         if(qtyPerCategoryMap[categoryName] === undefined){
             qtyPerCategoryMap[categoryName] = 0;
         };
@@ -151,7 +143,7 @@ exports.findLeastPopularCategory = function(salesFileReader){
 
     for(var key in qtyPerCategoryMap){
         var currentQty = qtyPerCategoryMap[key];
-        //
+        
         if (currentQty < qty) {
             qty = currentQty;
             categoryName = key;
@@ -160,7 +152,6 @@ exports.findLeastPopularCategory = function(salesFileReader){
     console.log('=========================================================== end of CategoryName + Qty PerCategory map');
     console.log(categoryName +','+ qty);
     console.log('=========================================================== Above - Least categoryName + qty');
-    //console.log(productCategories);
     return {
         categoryName: categoryName,
         qty:qty
