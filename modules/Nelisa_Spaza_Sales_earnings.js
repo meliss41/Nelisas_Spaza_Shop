@@ -61,9 +61,9 @@ exports.getEarningsPerCategory = function(fileName){
              };
              totalProductPurchasedMap[productName] = totalProductPurchasedMap[productName] + Number(productPrice);  
                 });
-     console.log('=========================================================== below - Nelisas Purchases Total Costs Per Product');
-     console.log(totalProductPurchasedMap);
-     console.log('=========================================================== above - Nelisas Purchases Total Costs Per Product');
+     //console.log('=========================================================== below - Nelisas Purchases Total Costs Per Product');
+    // console.log(totalProductPurchasedMap);
+     //console.log('=========================================================== above - Nelisas Purchases Total Costs Per Product');
      return totalProductPurchasedMap;
 
  };
@@ -89,9 +89,16 @@ exports.getEarningsPerCategory = function(fileName){
              };
              totalProductPurchasedMap[productName] = totalProductPurchasedMap[productName] + Number(productPrice) * qty;  
                 });
-     console.log('=========================================================== below - Nelisas sales History Total Costs Per Product');
-     console.log(totalProductPurchasedMap);
-     console.log('=========================================================== above - Nelisas sales History Total Costs Per Product');
+    // console.log('=========================================================== below - Nelisas sales History Total Costs Per Product');
+     //console.log(totalProductPurchasedMap);
+     //console.log('=========================================================== above - Nelisas sales History Total Costs Per Product');
      return totalProductPurchasedMap;
 
  };
+
+ exports.findProfitPerProducts = function(salesLines,totalProductPurchasedMap){
+    
+           //var mostProfit = totalCosts
+           console.log(totalProductPurchasedMap + 'check');
+            return totalProductPurchasedMap;
+        };
