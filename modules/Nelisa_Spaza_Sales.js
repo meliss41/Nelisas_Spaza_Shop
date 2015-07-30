@@ -2,9 +2,9 @@
 var salesFileUtilities = require('./sales_file_utilities');
 var salesAccessories = require('./Nelisa_Spaza_Sales_earnings');
 
-exports.findMostPopularProduct = function(salesFileReader){
+exports.findMostPopularProduct = function(fileName,salesFileReader){
 
-    var sales = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
+    var sales = salesFileUtilities.getSales(fileName);
     var productsSold = salesFileUtilities.getQtyPerProduct(sales);
 
     var productName = "";
@@ -59,9 +59,9 @@ var productCategories = {
     'Gold Dish Vegetable Curry Can' : 'Tinned_Food'
 };
 
-exports.findMostPopularCategory = function(salesFileReader){
+exports.findMostPopularCategory = function(fileName,salesFileReader){
 
-    var salesFileReader = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
+    var salesFileReader = salesFileUtilities.getSales(fileName);
     var qtyPerProduct = salesFileUtilities.getQtyPerProduct(salesFileReader);
 
     for(var productName in qtyPerProduct){
@@ -98,9 +98,9 @@ exports.findMostPopularCategory = function(salesFileReader){
     };
 }
 
-exports.findLeastPopularProduct = function(salesFileReader){
+exports.findLeastPopularProduct = function(fileName,salesFileReader){
 
-    var sales = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
+    var sales = salesFileUtilities.getSales(fileName);
     var productsSold = salesFileUtilities.getQtyPerProduct(sales);
 
     var productName = "";
@@ -122,9 +122,9 @@ exports.findLeastPopularProduct = function(salesFileReader){
 
 }
 
-exports.findLeastPopularCategory = function(salesFileReader){
+exports.findLeastPopularCategory = function(fileName,salesFileReader){
 
-    var salesFileReader = salesFileUtilities.getSales("./files/NelisaSalesHistory.csv");
+    var salesFileReader = salesFileUtilities.getSales(fileName);
     var qtyPerProduct = salesFileUtilities.getQtyPerProduct(salesFileReader);
 
     for(var productName in qtyPerProduct){
@@ -165,7 +165,7 @@ exports.findLeastPopularCategory = function(salesFileReader){
             var purchasedProductsTotal = salesAccessories.getTotalCostPerProduct(salesLines)
 
             
-    return productsSoldTotal;
+            return productsSoldTotal;
               //var purchasedProductsTotal = salesFileUtilities.get
     // var salesRows = salesFileUtilities.getSales(fileName);
     // var totalSalesPerProduct = salesFileUtilities.getSaleCostsPerProduct(salesRows);
