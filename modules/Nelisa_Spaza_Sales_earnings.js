@@ -2,7 +2,7 @@
     var salesFileUtilities = require('./sales_file_utilities');
 	exports.findSalesEarningsRows = function(fileName){
 
-		var sales = salesFileUtilities.getSales("./files/NelisaPurchases.csv");
+		var sales = salesFileUtilities.getSales(fileName);
 		var earningsPerProducts = salesFileUtilities.getQtyPerProduct(sales);
 		console.log('===========================================================below - Purchased products are hidden');
 		//console.log(sales);
@@ -10,8 +10,8 @@
 
 };
 		
-exports.getStockedProducts = function(salesLines){
-        var sales = salesFileUtilities.getSales("./files/NelisaPurchases.csv");
+exports.getStockedProducts = function(fileName,salesLines){
+        var sales = salesFileUtilities.getSales(fileName);
         var purchasedProducts = salesFileUtilities.getQtyPerProduct(sales);
 
 	purchasedProducts = {};
@@ -41,9 +41,9 @@ exports.getEarningsPerCategory = function(fileName){
 
     }
 
- exports.getPurchTotalCostsPerProduct = function(salesLines){
+ exports.getPurchTotalCostsPerProduct = function(fileName){
 
-         var sales = salesFileUtilities.getSales(salesLines);
+         var sales = salesFileUtilities.getSales(fileName);
          var productsSold = salesFileUtilities.getQtyPerProduct(sales);
          //var totalCost = {};
          var totalProductPurchasedMap = {};
@@ -62,15 +62,15 @@ exports.getEarningsPerCategory = function(fileName){
              totalProductPurchasedMap[productName] = totalProductPurchasedMap[productName] + Number(productPrice);  
                 });
      //console.log('=========================================================== below - Nelisas Purchases Total Costs Per Product');
-    // console.log(totalProductPurchasedMap);
+     //console.log(totalProductPurchasedMap);
      //console.log('=========================================================== above - Nelisas Purchases Total Costs Per Product');
      return totalProductPurchasedMap;
 
  };
 
- exports.getHistTotalCostsPerProduct = function(salesLines){
+ exports.getHistTotalCostsPerProduct = function(fileName,salesLines){
 
-         var sales = salesFileUtilities.getSales(salesLines);
+         var sales = salesFileUtilities.getSales(fileName);
          // var productsSold = salesFileUtilities.getQtyPerProduct(sales);
          //var totalCost = {};
          var totalProductPurchasedMap = {};
@@ -95,10 +95,3 @@ exports.getEarningsPerCategory = function(fileName){
      return totalProductPurchasedMap;
 
  };
-
- exports.findProfitPerProducts = function(salesLines,totalProductPurchasedMap){
-    
-           //var mostProfit = totalCosts
-           console.log(totalProductPurchasedMap + 'check');
-            return totalProductPurchasedMap;
-        };
