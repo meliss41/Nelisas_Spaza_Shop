@@ -2,7 +2,7 @@ var assert = require("assert");
 var productsSoldReader = require('../modules/Nelisa_Spaza_Sales');
 var purchasedProductsReader = require('../modules/Nelisa_Spaza_Sales_earnings');
 var SalesFileProcessing = require('../modules/sales_file_utilities');
-var profits = require('../modules/profit');
+//var profits = require('../modules/profit');
 
 
 describe("Nelisa's spaza sales processing", function(){
@@ -110,11 +110,11 @@ describe("Nelisa's spaza sales purchases file processing",function(){
 
     });
 
-    it('should find the most profitable product',function(){
-              var mostProfitableProduct = profits.getPurchTotalCostsPerProduct();
-                //console.log(mostProfitableProduct);
-             assert.equal(mostProfitableProduct[476,'Milk']);
-        });
+    // it('should find the most profitable product',function(){
+    //           var mostProfitableProduct = profits.getProfitPer();
+    //             //console.log(mostProfitableProduct);
+    //          assert.equal(mostProfitableProduct[476,'Milk']);
+    //     });
 
 });
 

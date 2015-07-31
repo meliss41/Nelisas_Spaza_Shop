@@ -41,7 +41,7 @@ exports.getEarningsPerCategory = function(fileName){
 
     }
 
- exports.getPurchTotalCostsPerProduct = function(fileName,callback){
+ exports.getPurchTotalCostsPerProduct = function(fileName){
 
          var sales = salesFileUtilities.getSales(fileName);
          var productsSold = salesFileUtilities.getQtyPerProduct(sales);
@@ -68,7 +68,7 @@ exports.getEarningsPerCategory = function(fileName){
 
  };
 
- this.getHistTotalCostsPerProduct = function(fileName,callback){
+ exports.getHistTotalCostsPerProduct = function(fileName){
 
          var sales = salesFileUtilities.getSales(fileName);
          // var productsSold = salesFileUtilities.getQtyPerProduct(sales);
