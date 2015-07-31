@@ -9,30 +9,30 @@ describe("Nelisa's spaza sales processing", function(){
 
     it('should find all the sales rows in the file', function(){
 
-    	var reader = SalesFileProcessing.getSales('/NelisaSalesHistory.csv');
+    	var reader = SalesFileProcessing.getSales('./files/NelisaSalesHistory.csv');
     	assert.equal(448, reader.length);
 
     });
 
    it('should find the most popular product plus qty', function(){
-        var reader = productsSoldReader.findMostPopularProduct('/NelisaSalesHistory.csv');
+        var reader = productsSoldReader.findMostPopularProduct('./files/NelisaSalesHistory.csv');
         assert.deepEqual({"productName":"Mixed Sweets 5s","qty":172},reader);
     });
 
     it('should find most popular category name plus qty', function(){
-            var salesPerProduct = productsSoldReader.findMostPopularCategory('/NelisaSalesHistory.csv');
+            var salesPerProduct = productsSoldReader.findMostPopularCategory('./files/NelisaSalesHistory.csv');
              assert.deepEqual(salesPerProduct, {"categoryName" : "Short_Life_Groceries", "qty" : 397}); 
 
         });
 
     it('should find least popular product name plus qty', function(){
-            var salesPerProduct = productsSoldReader.findLeastPopularProduct('/NelisaSalesHistory.csv');
+            var salesPerProduct = productsSoldReader.findLeastPopularProduct('./files/NelisaSalesHistory.csv');
              assert.deepEqual(salesPerProduct,{"productName":"Rose (plastic)","qty":14} ); 
 
         });
 
     it('should find least popular category name plus qty', function(){
-            var salesPerProduct = productsSoldReader.findLeastPopularCategory('/NelisaSalesHistory.csv');
+            var salesPerProduct = productsSoldReader.findLeastPopularCategory('./files/NelisaSalesHistory.csv');
              assert.deepEqual(salesPerProduct, {"categoryName" : "Novelty_Goods", "qty" : 28}); 
 
         });
@@ -41,7 +41,7 @@ describe("Nelisa's spaza sales processing", function(){
    describe("Nelisa's spaza sales earnings file processing", function(){
 
     it('should find the total costs per product', function(){
-        var salesPerProduct = productsSoldReader.getSaleCostsPerProduct('/NelisaSalesHistory.csv');
+        var salesPerProduct = productsSoldReader.getSaleCostsPerProduct('./files/NelisaSalesHistory.csv');
 
         assert.equal(1420, salesPerProduct["Milk 1l"]); 
         assert.equal(1410, salesPerProduct["Iwisa Pap 5kg"]); 
@@ -50,7 +50,7 @@ describe("Nelisa's spaza sales processing", function(){
     });
 
     it('should find the total cost per category', function(){
-        var salesPerProduct = SalesFileProcessing.getSalesPerProductsCategory('/NelisaSalesHistory.csv');                     
+        var salesPerProduct = SalesFileProcessing.getSalesPerProductsCategory('./files/NelisaSalesHistory.csv');                     
                     
                          assert.equal(6105, salesPerProduct['Short_Life_Groceries']);
                          assert.equal(1714, salesPerProduct['Tinned_Food']);
@@ -67,19 +67,20 @@ describe("Nelisa's spaza sales processing", function(){
 describe("Nelisa's spaza sales purchases file processing",function(){
 
     it('should find the purchases rows in the file to get the length of lines from csv', function(){
-           var purchasedProducts = SalesFileProcessing.getSales("/NelisaPurchases.csv");
+           var purchasedProducts = SalesFileProcessing.getSales("./files/NelisaPurchases.csv");
              assert.equal(153, purchasedProducts.length); 
         });
 
     it('should find the purchased products rows', function(){
-            var earningsPerProduct = purchasedProductsReader.findSalesEarningsRows('/NelisaPurchases.csv');
-             assert.equal(earningsPerProduct); 
+            var earningsPerProduct = purchasedProductsReader.findSalesEarningsRows('./files/NelisaPurchases.csv');
+            var result = earningsPerProduct;
+             assert.deepEqual(earningsPerProduct,result); 
 
         });
 
     it('should find the total Costs per product from Nelisas purchases file', function(){
-        var purchasedProductsCosts = purchasedProductsReader.getPurchTotalCostsPerProduct('/NelisaPurchases.csv');
-            //var productsSoldCosts = purchasedProductsReader.getTotalCostPerProduct('/NelisaSalesHistory.csv');
+        var purchasedProductsCosts = purchasedProductsReader.getPurchTotalCostsPerProduct('./files/NelisaPurchases.csv');
+            //var productsSoldCosts = purchasedProductsReader.getTotalCostPerProduct('./files/NelisaSalesHistory.csv');
 
              assert.equal(2238, purchasedProductsCosts["Imasi"]);
              assert.equal(2070, purchasedProductsCosts["Mixed Sweets 5s"]);
@@ -101,7 +102,7 @@ describe("Nelisa's spaza sales purchases file processing",function(){
         });
 
     it('should find the total costs per product from NelisasSalesHistory', function(){
-        var productsSoldCosts = purchasedProductsReader.getHistTotalCostsPerProduct('/NelisaSalesHistory.csv');
+        var productsSoldCosts = purchasedProductsReader.getHistTotalCostsPerProduct('./files/NelisaSalesHistory.csv');
 
         assert.equal(1420, productsSoldCosts["Milk 1l"]); 
         assert.equal(1410, productsSoldCosts["Iwisa Pap 5kg"]); 
@@ -110,9 +111,9 @@ describe("Nelisa's spaza sales purchases file processing",function(){
     });
 
     it('should find the most profitable product',function(){
-              var mostProfitableProduct = profits.getPurchTotalCostsPerProduct("/NelisaPurchases.csv");
+              var mostProfitableProduct = profits.getPurchTotalCostsPerProduct();
                 //console.log(mostProfitableProduct);
-             assert.equal(476,mostProfitableProduct['Milk']);
+             assert.equal(mostProfitableProduct[476,'Milk']);
         });
 
 });
