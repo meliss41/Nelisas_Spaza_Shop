@@ -7,7 +7,7 @@
 		console.log('===========================================================below - Purchased products are hidden');
 		//console.log(sales);
         console.log('=========================================================== above - Purchased products are hidden')
-
+        return earningsPerProducts
 };
 		
 exports.getStockedProducts = function(fileName,salesLines){
@@ -23,7 +23,7 @@ exports.getStockedProducts = function(fileName,salesLines){
 
             if(purchasedProducts[productName] === undefined){
                 purchasedProducts[productName] = 0;
-            };
+            };getPurchTotalCostsPerProduct
 
             purchasedProducts[productName] = purchasedProducts[productName] + Number(qty);
                    
@@ -41,7 +41,7 @@ exports.getEarningsPerCategory = function(fileName){
 
     }
 
- exports.getPurchTotalCostsPerProduct = function(fileName){
+ exports.getPurchTotalCostsPerProduct = function(fileName,callback){
 
          var sales = salesFileUtilities.getSales(fileName);
          var productsSold = salesFileUtilities.getQtyPerProduct(sales);
@@ -68,7 +68,7 @@ exports.getEarningsPerCategory = function(fileName){
 
  };
 
- exports.getHistTotalCostsPerProduct = function(fileName,salesLines){
+ this.getHistTotalCostsPerProduct = function(fileName,callback){
 
          var sales = salesFileUtilities.getSales(fileName);
          // var productsSold = salesFileUtilities.getQtyPerProduct(sales);
@@ -89,9 +89,8 @@ exports.getEarningsPerCategory = function(fileName){
              };
              totalProductPurchasedMap[productName] = totalProductPurchasedMap[productName] + Number(productPrice) * qty;  
                 });
-    // console.log('=========================================================== below - Nelisas sales History Total Costs Per Product');
-     //console.log(totalProductPurchasedMap);
-     //console.log('=========================================================== above - Nelisas sales History Total Costs Per Product');
+   
      return totalProductPurchasedMap;
 
  };
+ //module.exports = getHistTotalCostsPerProduct();
