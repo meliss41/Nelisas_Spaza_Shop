@@ -4,7 +4,7 @@ var salesFileUtilities = require('./sales_file_utilities');
 
 exports.getSales = function(fileName){
         
-      var fileContent = fs.readFileSync('./files' + fileName, "utf8");//read files in folder
+      var fileContent = fs.readFileSync(fileName, "utf8");//read files in folder
         //split the file into rows
       var lines = fileContent.split('\r').splice(1);
        return lines;
