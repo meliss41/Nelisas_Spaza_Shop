@@ -1,25 +1,18 @@
 var totalSalesCost = require("./Nelisa_Spaza_Sales_earnings");
-saleFileProcess = require('./sales_file_utilities');
-// //var totalPurchSalesCost = require()
-// ??? sales
-// 	var totalHistSalesCost = totalSalesCost.getHistTotalCostsPerProduct(sales);
-// 	console.log(totalSalesCost);
+ var saleFileProcess = require('./sales_file_utilities');
 
-// ??? purchases
-// 	var totalPurchSalesCost = totalSalesCost.getPurchTotalCostsPerProduct(purchases);
-// 	console.log(totalPurchSalesCost);
-exports.getPurchTotalCostsPerProduct = function(fileName,salesLines){
 
-	var salesLines = saleFileProcess.getSales(fileName);
-	// console.log(salesLines);
-  	var totalSalesPerProduct = totalSalesCost.getPurchTotalCostsPerProduct(salesLines);
-    console.log(salesLines);
+  var totalCostsPerProductPurchasedMap = totalSalesCost.getPurchTotalCostsPerProduct('../files/NelisaPurchases.csv');
+  console.log(totalCostsPerProductPurchasedMap);
+  console.log('=========================================================== Above - it"s NelisaPurchases(totalCosts) map');
+  var totalSalesCostPerProductMap = totalSalesCost.getHistTotalCostsPerProduct('../files/NelisaSalesHistory.csv');
+  console.log(totalSalesCostPerProductMap);
+  console.log('=========================================================== Above - it"s Nelisashistory map');
 
-    console.log('=========================================================== below - salesRows are hidden');
-    return salesLines;
-    console.log('=========================================================== Above - salesRows are hiden');
+  var profitMap = {};
+  console.log(profitMap);
+
 	
-	};
 
 
 
