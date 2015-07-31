@@ -166,16 +166,6 @@ exports.findLeastPopularCategory = function(fileName,salesFileReader){
 
             
             return productsSoldTotal;
-              //var purchasedProductsTotal = salesFileUtilities.get
-    // var salesRows = salesFileUtilities.getSales(fileName);
-    // var totalSalesPerProduct = salesFileUtilities.getSaleCostsPerProduct(salesRows);
-    // // console.log(salesRows);
-    // console.log('===========================================================Above salesRows are hidden');
-    // return totalSalesPerProduct;
-    // console.log('===========================================================salesRows are hiden');
-
-
-
-
+    
 }
 
