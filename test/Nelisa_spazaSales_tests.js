@@ -2,6 +2,8 @@ var assert = require("assert");
 var productsSoldReader = require('../modules/Nelisa_Spaza_Sales');
 var purchasedProductsReader = require('../modules/Nelisa_Spaza_Sales_earnings');
 var SalesFileProcessing = require('../modules/sales_file_utilities');
+var profits = require('../modules/Nelisas_profit');
+
 //var profits = require('../modules/profit');
 
 
@@ -104,17 +106,40 @@ describe("Nelisa's spaza sales purchases file processing",function(){
     it('should find the total costs per product from NelisasSalesHistory', function(){
         var productsSoldCosts = purchasedProductsReader.getHistTotalCostsPerProduct('./files/NelisaSalesHistory.csv');
 
-        assert.equal(1420, productsSoldCosts["Milk 1l"]); 
-        assert.equal(1410, productsSoldCosts["Iwisa Pap 5kg"]); 
-        assert.equal(700, productsSoldCosts["Heart Chocolates"]); 
+                assert.equal(1420, productsSoldCosts["Milk 1l"]); 
+                assert.equal(1410, productsSoldCosts["Iwisa Pap 5kg"]); 
+                assert.equal(700, productsSoldCosts["Heart Chocolates"]); 
 
     });
 
-    // it('should find the most profitable product',function(){
-    //           var mostProfitableProduct = profits.getProfitPer();
-    //             //console.log(mostProfitableProduct);
-    //          assert.equal(mostProfitableProduct[476,'Milk']);
-    //     });
+    it('should find profits for each product', function(){
+        //nelisasProfitsPerProd = profits.getProfitPerProducts(fileName);
+    var nelisasProfit = profits.getProfitPerProducts();
+
+                assert.equal(264, nelisasProfit['Chakalaka Can']);
+                assert.equal(435, nelisasProfit['Coke 500ml']);
+                assert.equal(205.5, nelisasProfit['Cream Soda 500ml']);
+                assert.equal(177.5, nelisasProfit['Fanta 500ml']);
+                assert.equal(295, nelisasProfit['Gold Dish Vegetable Curry Can']);
+                assert.equal(887, nelisasProfit['Imasi']);
+                assert.equal(390, nelisasProfit['Iwisa Pap 5kg']);
+                assert.equal(358.5, nelisasProfit['Milk 1l']);
+                assert.equal(368, nelisasProfit['Top Class Soy Mince']);
+                assert.equal(156, nelisasProfit['Bananas - loose']);
+                assert.equal(-567, nelisasProfit['Apples - loose']);
+                assert.equal(-1615, nelisasProfit['Mixed Sweets 5s']);
+                assert.equal(260, nelisasProfit['Shampoo 1 litre']);
+                assert.equal(144, nelisasProfit['Soap Bar']);
+                assert.equal(290, nelisasProfit['Bread']);
+                assert.equal(10, nelisasProfit['Rose (plastic)']);
+                assert.equal(200, nelisasProfit['Heart Chocolates']);
+                assert.equal(16 , nelisasProfit['Valentine Cards']);
+
+    });
+it('should find the most profitable product', function(){
+    var mostProitableProd = profits.getMosprofitableProduct();
+        assert.deepEqual(mostProitableProd,{"productName":"Imasi","profit": 887});
+    })
 
 });
 
