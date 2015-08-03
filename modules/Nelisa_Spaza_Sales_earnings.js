@@ -61,9 +61,7 @@ exports.getEarningsPerCategory = function(fileName){
              };
              totalProductPurchasedMap[productName] = totalProductPurchasedMap[productName] + Number(productPrice);  
                 });
-     //console.log('=========================================================== below - Nelisas Purchases Total Costs Per Product');
-     //console.log(totalProductPurchasedMap);
-     //console.log('=========================================================== above - Nelisas Purchases Total Costs Per Product');
+    
      return totalProductPurchasedMap;
 
  };
@@ -71,8 +69,6 @@ exports.getEarningsPerCategory = function(fileName){
  exports.getHistTotalCostsPerProduct = function(fileName){
 
          var sales = salesFileUtilities.getSales(fileName);
-         // var productsSold = salesFileUtilities.getQtyPerProduct(sales);
-         //var totalCost = {};
          var totalProductPurchasedMap = {};
      sales.forEach(function(line){
              //split each line into fields
@@ -93,4 +89,4 @@ exports.getEarningsPerCategory = function(fileName){
      return totalProductPurchasedMap;
 
  };
- //module.exports = getHistTotalCostsPerProduct();
+ //module.exports = getHistTotalCostsPerProduct(fileName);
