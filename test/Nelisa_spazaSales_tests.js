@@ -137,9 +137,18 @@ describe("Nelisa's spaza sales purchases file processing",function(){
 
     });
 it('should find the most profitable product', function(){
-    var mostProitableProd = profits.getMosprofitableProduct();
-        assert.deepEqual(mostProitableProd,{"productName":"Imasi","profit": 887});
+    var mostProfitableProd = profits.getMosprofitableProduct();
+        assert.deepEqual(mostProfitableProd,{"productName":"Imasi","profit": 887});
     })
 
+it('should find the least profitable product', function(){
+    var mostProitableProd = profits.getLeastProfitableProduct();
+        assert.deepEqual(mostProitableProd,{"productName":"Mixed Sweets 5s","profit":-1615});
+    })
+it('should find most profitable category', function(){
+    var mostProfitableProduct = profits.getMostProfitableCategory();
+        assert.deepEqual(mostProfitableProduct, {"categoryName" : "Short_Life_Groceries", "currentProfitPrice" : 1535.5}); 
+
+        });
 });
 
